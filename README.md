@@ -22,7 +22,7 @@
 
 | Column                        | Type       | Options                        |
 | ------                        | ---------- | ------------------------------ |
-| user                          |references  | null: false, foreign_key: true |
+| user                          | references | null: false, foreign_key: true |
 | product_name                  | string     | null: false                    |
 | product_ name_description     | text       | null: false                    |
 | category_id                   | integer    | null: false                    |

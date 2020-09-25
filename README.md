@@ -22,7 +22,7 @@
 
 | Column                        | Type       | Options                        |
 | ------                        | ---------- | ------------------------------ |
-| nickname                      | string     | null: false                    |
+| user                          |references  | null: false, foreign_key: true |
 | product_name                  | string     | null: false                    |
 | product_ name_description     | text       | null: false                    |
 | category_id                   | integer    | null: false                    |
@@ -37,7 +37,7 @@
 - belongs_to :user
 - has_one :purchase
 
-
+  <!-- 購入 -->
 ## purchasesテーブル
 <!-- テーブル名は複数形 -->
 
@@ -62,8 +62,8 @@
 | address               | string     | null: false                    |
 | building_name         | string     |                                |
 | phone_number          | string     | null: false                    |
-| purchasing control    | references | null: false, foreign_key: true |
-
+| purchase              | references | null: false, foreign_key: true |
+    <!-- 購入管理 -->
 
 ### Association
 - belongs_to :purchase

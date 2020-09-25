@@ -43,9 +43,10 @@
 
 | Column            | Type       | Options                        |
 | ------            | ---------- | ------------------------------ |
-| user_id           | references | null: false, foreign_key: true |
-| item_id           | references | null: false, foreign_key: true |
+| user              | references | null: false, foreign_key: true |
+| item              | references | null: false, foreign_key: true |
 <!-- 外部キーを保存するカラムはreferences型かinteger型 -->
+<!-- references型は自動で_idがつく -->
 ### Association
 - belongs_to :user
 - belongs_to :item
@@ -61,7 +62,7 @@
 | address               | string     | null: false                    |
 | building_name         | string     |                                |
 | phone_number          | string     | null: false                    |
-| purchasing control_id | references | null: false, foreign_key: true |
+| purchasing control    | references | null: false, foreign_key: true |
 
 
 ### Association

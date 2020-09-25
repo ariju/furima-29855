@@ -21,19 +21,19 @@
 
 | Column                        | Type       | Options                        |
 | ------                        | ---------- | ------------------------------ |
-| product_name                  | text       | null: false                    |
+| user_name                     | string     | null: false                    |
+| product_name                  | string     | null: false                    |
 | product_ name_description     | text       | null: false                    |
-| category_id                   | references | null: false, foreign_key: true |
-| product_condition_id          | references | null: false, foreign_key: true |
-| burden_of_shipping_charges_id | references | null: false, foreign_key: true |
-| shipping_area_id              | references | null: false, foreign_key: true |
-| days_to_ship_id               | references | null: false, foreign_key: true |
+| category_id                   | integer    | null: false, foreign_key: true |
+| product_condition_id          | integer    | null: false, foreign_key: true |
+| burden_of_shipping_charges_id | integer    | null: false, foreign_key: true |
+| shipping_area_id              | integer    | null: false, foreign_key: true |
+| days_to_ship_id               | integer    | null: false, foreign_key: true |
 | price                         | integer    | null: false                    |
-| sales_commission              | integer    | null: false                    |
-| sales_profit                  | integer    | null: false                    |
+
 
 ### Association
-- belongs_to :users
+- belongs_to :user
 - has_one :purchase
 
 
@@ -41,25 +41,26 @@
 
 | Column            | Type       | Options                        |
 | ------            | ---------- | ------------------------------ |
-| card_number       | integer    | null: false                    |
-| expiration_date   | integer    | null: false                    |
-| security_code     | integer    | null: false                    |
+| user_id           | string     | null: false, foreign_key: true |
+| item_id           | string     | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :users
+- belongs_to :user
 - has_one :items
 - has_one :address
 
 ## addressテーブル
 
-| Column            | Type       | Options                        |
-| ------            | ---------- | ------------------------------ |
-| post_code         | string     | null: false                    |
-| prefectures_id    | integer    | null: false                    |
-| municipality      | string     | null: false                    |
-| address           | string     | null: false, foreign_key: true |
-| building_name     | string     |                                |
-| phone_number      | string     | null: false, foreign_key: true |
+| Column                | Type       | Options                        |
+| ------                | ---------- | ------------------------------ |
+| post_code             | string     | null: false                    |
+| prefectures_id        | integer    | null: false                    |
+| municipality          | string     | null: false                    |
+| address               | string     | null: false                    |
+| building_name         | string     |                                |
+| phone_number          | string     | null: false                    |
+| purchasing management | string     | null: false                    |
+
 
 ### Association
 - belongs_to :purchase

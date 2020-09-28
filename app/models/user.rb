@@ -22,6 +22,10 @@ class User < ApplicationRecord
     validates :first_name_kana 
     validates :last_name_kana 
   end
+
+  with_options format: {with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{6,100}+\z/i, message: "full-width characters."} do
+    validates :password
+  end
     
 end
 

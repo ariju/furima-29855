@@ -82,7 +82,6 @@ RSpec.describe User, type: :model do
       @user.password = "12345"
       @user.password_confirmation = "12345"
       @user.valid?
-      binding.pry
       expect(@user.errors.full_messages).to include("Password is too short (minimum is 6 characters)")
     end
 
@@ -97,5 +96,31 @@ RSpec.describe User, type: :model do
       @user.valid?
       expect(@user.errors.full_messages).to include("First name kana full-width characters.")
     end
+
+    it 'ユーザー本名は全角（漢字・ひらがな・カタカナ）で入力させること' do
+      @user.last_name = "aaaa"
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Last name full-width characters.")
+    end
+
+    it 'ユーザー本名は全角（漢字・ひらがな・カタカナ）で入力させること' do
+      @user.first_name = "aaaa"
+      @user.valid?
+      expect(@user.errors.full_messages).to include("First name full-width characters.")
+    end
+
+    it 'ユーザー本名のフリガナは全角（カタカナ）で入力させること' do
+      @user.last_name_kana = "sssss"
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Last name kana full-width characters.")
+    end
+
+    it 'ユーザー本名のフリガナは全角（カタカナ）で入力させること' do
+      @user.first_name_kana = "sssss"
+      @user.valid?
+      expect(@user.errors.full_messages).to include("First name kana full-width characters.")
+    end
+
+    
   end
 end

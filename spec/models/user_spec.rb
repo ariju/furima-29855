@@ -132,5 +132,17 @@ RSpec.describe User, type: :model do
       @user.valid?
       expect(@user.errors.full_messages).to include("Email is invalid")
     end
+
+    it 'passwordが英字のみだと登録できない' do
+      @user.password = "あああ"
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Password full-width characters.")
+    end
+
+    it 'passwordが数字のみだと登録できない' do
+      @user.password = "あああ"
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Password full-width characters.")
+    end
   end
 end

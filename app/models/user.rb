@@ -26,4 +26,7 @@ class User < ApplicationRecord
   with_options format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{6,100}+\z/i, message: 'full-width characters.' } do
     validates :password
   end
+
+  has_many :items
+  has_many :purchases
 end

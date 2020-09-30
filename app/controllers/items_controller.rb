@@ -9,8 +9,12 @@ class ItemsController < ApplicationController
   end
 
   def create
-    item = Item.create(item_params)
-    redirect_to "/item/#{item.email.id}"
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def show
@@ -20,7 +24,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.repuire(:item).permit(:text,:product_name,:product_name_description,:category_id,:product_condition_id,:burden_of_shipping_charges_id,:shipping_area_id,:days_to_ship_id,:price,:image,).merge(user_id: current_user.id)
+    params.require(:item).permit(:text,:price,:product_name,:product_name_description,:category_id,:product_condition_id,:burden_of_shipping_charges_id,:shipping_area_id,:days_to_ship_id,:price,:image,).merge(user_id: current_user.id)
   end
 
 end

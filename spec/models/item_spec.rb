@@ -71,9 +71,9 @@ RSpec.describe Item, type: :model do
     end
 
     it '¥9,999,999より大きい数字が入力された場合保存できない' do
-    @item.price = '10,000,000,000'
-    @item.valid?
-    expect(@item.errors.full_messages).to include('Price is not a number')
+      @item.price = '10,000,000,000'
+      @item.valid?
+      expect(@item.errors.full_messages).to include('Price is not a number')
     end
 
     it '  販売価格は半角数字のみ保存可能であること' do

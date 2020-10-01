@@ -13,17 +13,15 @@ class Item < ApplicationRecord
     validates :image
     validates :product_name
     validates :product_name_description
-  end
-  # validates :text,
-  validates :price, presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
-  validates :category_id, numericality: { other_than: 1, message: 'Select' }
-  validates :product_condition_id, numericality: { other_than: 1, message: 'Select' }
-  validates :burden_of_shipping_charges_id, numericality: { other_than: 1, message: 'Select' }
-  validates :shipping_area_id, numericality: { other_than: 1, message: 'Select' }
-  validates :days_to_ship_id, numericality: { other_than: 1, message: 'Select' }
-  # validates :user_id, numericality: { other_than: 1 ,message: 'Select'}
-  with_options format: { with: /\A[0-9]+\z/, message: 'Half-width number' } do
+    validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
+    validates :category_id, numericality: { other_than: 1, message: 'Select' }
+    validates :product_condition_id, numericality: { other_than: 1, message: 'Select' }
+    validates :burden_of_shipping_charges_id, numericality: { other_than: 1, message: 'Select' }
+    validates :shipping_area_id, numericality: { other_than: 1, message: 'Select' }
+    validates :days_to_ship_id, numericality: { other_than: 1, message: 'Select' }
+    end
+    with_options format: { with: /\A[0-9]+\z/, message: 'Half-width number' } do
     validates :price
   end
 end
-# validates :price,numericality: { only_integer: true,greater_than: 300, less_than: 10000}
+

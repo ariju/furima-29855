@@ -65,13 +65,13 @@ RSpec.describe Item, type: :model do
     end
 
     it '  価格の範囲が、300以下では出品できない ' do
-      @item.price = '100'
+      @item.price = 100
       @item.valid?
       expect(@item.errors.full_messages).to include('Price must be greater than or equal to 300')
     end
 
     it '¥9,999,999より大きい数字が入力された場合保存できない' do
-      @item.price = '10,000,000,000'
+      @item.price = 10,000,000,000
       @item.valid?
       expect(@item.errors.full_messages).to include('Price is not a number')
     end

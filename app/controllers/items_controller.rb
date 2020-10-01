@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.all.order(product_name: "ASC")
+    @items = Item.all.order(created_at: "DESC")
   end
 
   def new

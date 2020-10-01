@@ -29,31 +29,31 @@ RSpec.describe Item, type: :model do
     end
 
     it ' カテゴリーの情報が必須であること' do
-      @item.category_id = ' 1 '
+      @item.category_id = 1 
       @item.valid?
       expect(@item.errors.full_messages).to include('Category Select')
     end
 
     it ' 商品の状態についての情報が必須であること' do
-      @item.product_condition_id = ' 1 '
+      @item.product_condition_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include('Product condition Select')
     end
 
     it '  配送料の負担についての情報が必須であること' do
-      @item.burden_of_shipping_charges_id = ' 1 '
+      @item.burden_of_shipping_charges_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include('Burden of shipping charges Select')
     end
 
     it '  発送元の地域についての情報が必須であること    ' do
-      @item.shipping_area_id = ' 1 '
+      @item.shipping_area_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include('Shipping area Select')
     end
 
     it '  発送までの日数についての情報が必須であること    ' do
-      @item.days_to_ship_id = ' 1 '
+      @item.days_to_ship_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include('Days to ship Select')
     end

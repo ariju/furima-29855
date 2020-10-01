@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_tweet, only: [:edit, :show]
+
   def index
     @items = Item.all
   end

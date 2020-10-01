@@ -8,7 +8,7 @@ FactoryBot.define do
 
     price { 300 }
     product_name { 'あああ' }
-    product_name_description { 'あああ'}
+    product_name_description { 'あああ' }
     burden_of_shipping_charges_id { 2 }
     category_id { 2 }
     days_to_ship_id { 2 }

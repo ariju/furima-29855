@@ -29,7 +29,7 @@ RSpec.describe Item, type: :model do
     end
 
     it ' カテゴリーの情報が必須であること' do
-      @item.category_id = 1 
+      @item.category_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include('Category Select')
     end
@@ -71,7 +71,7 @@ RSpec.describe Item, type: :model do
     end
 
     it '¥9,999,999より大きい数字が入力された場合保存できない' do
-      @item.price = 10,000,000,000
+      @item.price = 10, 0o00, 0o00, 0o00
       @item.valid?
       expect(@item.errors.full_messages).to include('Price is not a number')
     end

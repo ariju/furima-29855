@@ -57,8 +57,7 @@ RSpec.describe UserPurchase, type: :model do
     it '電話番号にはハイフンは不要で、11桁以内であること' do
       @user_purchase.phone_number = '1234-56789012'
       @user_purchase.valid?
-      expect(@user_purchase).to be_valid
+      expect(@user_purchase.errors.full_messages).to include('Phone number input only number')
     end
   end
 end
-# 正常系の場合は間違いを入れること

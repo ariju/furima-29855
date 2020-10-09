@@ -14,9 +14,9 @@ class UserPurchase
     validates :shipping_area_id
   end
 
-  # with_options length: { maximum: 11, message: 'input only number' } do
-  #   validates :phone_number
-  # end
+  with_options length: { maximum: 11, message: 'input only number' } do
+    validates :phone_number
+  end
 
   with_options format: { with: /\A\d{3}[-]\d{4}\z/, message: 'Input correctly' } do
     validates :post_code

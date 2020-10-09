@@ -6,7 +6,6 @@ RSpec.describe UserPurchase, type: :model do
       @user1 = FactoryBot.create(:user)
       @item = FactoryBot.create(:item)
       @user_purchase = FactoryBot.build(:user_purchase, user_id: @user1.id, item_id: @item.id)
-      ## sleep 1
     end
 
     it 'tokenがあれば保存ができること' do
@@ -53,6 +52,12 @@ RSpec.describe UserPurchase, type: :model do
       @user_purchase.post_code = '1234567'
       @user_purchase.valid?
       expect(@user_purchase.errors.full_messages).to include('Post code Input correctly')
+    end
+
+    it '電話番号にはハイフンは不要で、11桁以内であること' do
+      @user_purchase.phone_number = '1234-56789012'
+      @user_purchase.valid?
+      expect(@user_purchase).to be_valid
     end
   end
 end

@@ -189,6 +189,7 @@
   </div>
   <%# /商品一覧 %>
 </div>
+<% if user_signed_in? %>
 <div class='purchase-btn'>
   <span class='purchase-btn-text'>出品する</span>
   <a href= "/items/new">
@@ -196,3 +197,4 @@
   </a>
 </div>
 <%= render "shared/footer" %>
+<% end %>

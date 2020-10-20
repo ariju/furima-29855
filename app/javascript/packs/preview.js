@@ -7,6 +7,8 @@ if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
       let imageElementNum = document.querySelectorAll('.image-element').length
       const blobImage = document.createElement('img');
       blobImage.setAttribute('src', blob);
+      blobImage.setAttribute('id', 'preview-image');
+
       const inputHTML = document.createElement('input')
       inputHTML.setAttribute('id', `item-image_${imageElementNum}`)
       inputHTML.setAttribute('name', 'item[images][]')
